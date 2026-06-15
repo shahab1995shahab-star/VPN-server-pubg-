@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>ShivVPN | سيرفرات PUBG والألعاب - عروض لا تُقاوم</title>
+    <!-- Font Awesome 6 (مجاني) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 20%, #0a0f1e, #03050a);
+            font-family: 'Segoe UI', 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #eef2ff;
+            padding: 1rem;
+            direction: rtl;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* خلفية متحركة بسيطة */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.1"><path fill="none" stroke="%2300e0c0" stroke-width="1.5" d="M100 200 L700 200 M100 400 L700 400 M100 600 L700 600 M200 100 L200 700 M400 100 L400 700 M600 100 L600 700" stroke-dasharray="6 6"/><circle cx="400" cy="400" r="150" stroke="%2300aaff" fill="none" stroke-width="1" stroke-dasharray="4 8"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* الهيدر مع تأثير */
+        .header {
+            text-align: center;
+            padding: 1.5rem 0 1rem 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(0, 114, 255, 0.4);
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .logo {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00c6ff, #9d4eff, #0072ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .logo span {
+            font-size: 1rem;
+            background: none;
+            -webkit-background-clip: unset;
+            color: #ffd966;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            color: #b9c7db;
+            margin-top: 8px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* كروت دلع + تأثيرات */
+        .card {
+            background: rgba(19, 22, 31, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            padding: 1.5rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(0, 224, 192, 0.15);
+            transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.3s;
+            animation: fadeInUp 0.6s backwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+
+        .card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 25px 40px -12px #0072ff40, 0 0 0 2px rgba(0, 224, 192, 0.5);
+            background: rgba(22, 26, 40, 0.92);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-25px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: linear-gradient(120deg, #00b4aa, #1e6f9f);
+            color: #fff;
+            font-weight: bold;
+            padding: 0.25rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0,180,170,0.4);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        /* سعر مميز مع قديم وجديد */
+        .price-block {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 0.75rem 0;
+        }
+        .old-price {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: #a0a9bb;
+            background: #1f2538;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+        }
+        .new-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffb347;
+            background: linear-gradient(135deg, #ffb347, #ff7e05);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 5px #ff7e0520;
+        }
+        .new-price small {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #ddd;
+            background: none;
+            -webkit-background-clip: unset;
+        }
+        .save-tag {
+            background: #e03a3e;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background: #2f3b52;
+            text-align: center;
+            padding: 14px;
+            border-radius: 60px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            transition: all 0.25s;
+            margin-top: 1.2rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+        .btn:hover::before {
+            left: 100%;
+        }
+        .btn-primary {
+            background: linear-gradient(95deg, #0b2b52, #2a6fdb);
+            box-shadow: 0 8px 18px -6px #0072ff;
+        }
+        .btn-primary:hover {
+            transform: scale(0.98);
+            background: linear-gradient(95deg, #06203f, #1b5bc0);
+            box-shadow: 0 4px 12px #0055cc;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+        .feature-list i {
+            width: 28px;
+            color: #00e0c0;
+            font-size: 1.3rem;
+            filter: drop-shadow(0 0 3px #00e0c0);
+        }
+
+        /* زر التليجرام العائم مع اهتزاز خفيف */
+        .float-tele {
+            position: fixed;
+            bottom: 25px;
+            right: 20px;
+            background: linear-gradient(145deg, #1da1f2, #0e6fbd);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4), 0 0 0 2px rgba(255,255,255,0.2);
+            z-index: 100;
+            transition: 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            animation: pulseGlow 2s infinite;
+        }
+
+        .float-tele:hover {
+            transform: scale(1.07);
+            background: #1a8cd8;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(29,161,242,0.5);}
+            70% { box-shadow: 0 0 0 12px rgba(29,161,242,0);}
+            100% { box-shadow: 0 0 0 0 rgba(29,161,242,0);}
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .step {
+            background: #10131ecc;
+            backdrop-filter: blur(4px);
+            border-radius: 24px;
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            border-right: 3px solid #00e0c0;
+        }
+        .step-number {
+            background: #0072ff;
+            width: 34px;
+            height: 34px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 0 6px #0072ff;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5f6f8a;
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 1px dashed #1f2a3e;
+        }
+
+        hr {
+            border-color: #1f2a3e;
+            margin: 0.5rem 0;
+        }
+
+        /* تحسين الموبايل */
+        @media (max-width: 480px) {
+            body {
+                padding: 0.7rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+            .new-price {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* سلة مميزة لإضافة مؤثر البطاقات */
+        .ribbon {
+            position: relative;
+            overflow: hidden;
+        }
+        .hot-badge {
+            position: absolute;
+            top: 12px;
+            left: -30px;
+            background: #ff3b3b;
+            transform: rotate(-40deg);
+            padding: 5px 40px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 2px 10px black;
+            pointer-events: none;
+        }
+        .plan-inner {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- هيدر جذاب -->
+    <div class="header">
+        <div class="logo">SHIV VPN <span>⚡ PRO</span></div>
+        <div class="tagline">أفضل سيرفرات ألعاب بينغ فائق السرعة 🔥 عروض لفترة محدودة</div>
+    </div>
+
+    <!-- بطاقة تعريفية -->
+    <div class="card">
+        <div class="price-badge">🎮 صنع خصيصًا للاعبين المحترفين</div>
+        <h2>سيرفرات <i class="fas fa-dove"></i> PUBG – فري فاير – كول أوف ديوتي</h2>
+        <p style="margin: 10px 0 15px 0; font-size: 1rem;">مع تقنية WireGuard المضاعفة واستضافة احترافية، بينغ منخفض قياسي. استعد للعب بدون انقطاع وبدون Lag. فريقنا يضمن لك استقراراً أسطورياً.</p>
+        <ul class="feature-list" style="margin-top: 5px;">
+            <li><i class="fas fa-tachometer-alt"></i> <span>بينغ فائق: 35-65ms داخل PUBG</span></li>
+            <li><i class="fas fa-shield-alt"></i> <span>تشغيل AES-256 + حماية DDOS</span></li>
+            <li><i class="fas fa-server"></i> <span>أحدث سيرفرات Ampere / رايزن</span></li>
+            <li><i class="fas fa-headset"></i> <span>دعم VIP فوري عبر تليجرام</span></li>
+        </ul>
+    </div>
+
+    <!-- خطط الاشتراك (السعر القديم والجديد + هيدرا محترم) -->
+    <div class="card">
+        <div class="price-badge">📢 عروض الثنائي – خصم يصل 40%</div>
+        <div style="display: flex; flex-direction: column; gap: 1.4rem;">
+            
+            <!-- الخطة التجريبية (اسبوع) -->
+            <div class="plan-inner" style="background: linear-gradient(145deg, #0c0f17, #080b12); border-radius: 28px; padding: 1.2rem; transition: all 0.2s;">
+                <h3 style="display: flex; align-items: center; gap: 6px;">⭐ خطة تجريبية أسبوع <i class="fas fa-bolt" style="color:#ffaa33;"></i></h3>
+                <div class="price-block">
+                    <span class="old-price">سعر قديم: 9$</span>
+                    <span class="new-price">5$ <small>/ أسبوع فقط</small></span>
+                    <span class="save-tag">وفر 44%</span>
+                </div>
+                <ul class="feature-list" style="margin-top: 5px;">
+                    <li><i class="fas fa-check-circle"></i> سرعة عالية + بينغ مستقر</li>
+                    <li><i class="fas fa-check-circle"></i> استخدام يصل 3 أجهزة متزامنة</li>
+                    <li><i class="fas fa-check-circle"></i> دعم فني خلال 8 ساعات</li>
+                    <li><i class="fas fa-check-circle"></i> تجربة مثالية للاختبار</li>
+                </ul>
+                <a href="https://t.me/Shivpn" class="btn btn-primary">✈️ اطلب تجربة الأسبوع الآن</a>
+            </div>
+
+            <!-- الخطة الشهرية الأكثر مبيعاً (عرض قوي) -->
+            <div class="plan-inner" style="background: linear-gradient(145deg, #111827, #090c14); border-radius: 28px; padding: 1.2rem; border: 1px solid #ffb34740; position: relative;">
+                <div class="hot-badge" style="position: absolute; top: 12px; left: -28px; background: #ff6a00;">الأكثر طلباً 🔥</div>
+                <h3 style="display: flex; gap: 8px;"><i class="fas fa-crown" style="color: gold;"></i> خطة VIP شهرية (باقة النخبة)</h3>
+                <div class="price-block">
+                    <span class="old-price">سعر قديم: 22$</span>
+                    <span class="new-price">12$ <small>/ شهر</small></span>
+                    <span class="save-tag">وفر 45%</span>
+                </div>
+                <ul class="feature-list" style="margin-top: 5px;">
+                    <li><i class="fas fa-check-circle"></i> سيرفر خاص VIP بأداء خرافي</li>
+                    <li><i class="fas fa-check-circle"></i> أجهزة غير محدودة + أولوية قصوى</li>
+                    <li><i class="fas fa-check-circle"></i> تحديثات تلقائية وبروتوكولات متطورة</li>
+                    <li><i class="fas fa-check-circle"></i> دعم 24/7 باللغتين العربية والإنجليزية</li>
+                </ul>
+                <a href="https://t.me/Shivpn" class="btn btn-primary">🏆 اشتر شهرياً ووفر 10$ 🏆</a>
+            </div>
+
+            <!-- خطة 3 أشهر - نصف سنوي -->
+            <div class="plan-inner" style="background: #0a0d16cc; border-radius: 28px; padding: 1.2rem;">
+                <h3>💎 باقة 3 أشهر (اقتصادية)</h3>
+                <div class="price-block">
+                    <span class="old-price">سعر قديم: 50$</span>
+                    <span class="new-price">30$ <small>/ 3 أشهر</small></span>
+                    <span class="save-tag">وفر 40%</span>
+                </div>
+                <ul class="feature-list" style="margin-top: 5px;">
+                    <li><i class="fas fa-check-circle"></i> خصم إضافي + هدية أسبوع مجاني</li>
+                    <li><i class="fas fa-check-circle"></i> سيرفر مخصص عالي المساحة</li>
+                    <li><i class="fas fa-check-circle"></i> تحديثات دائمة للتجربة المثالية</li>
+                </ul>
+                <a href="https://t.me/Shivpn" class="btn btn-primary">💰 احصل على 3 شهور بسعر رائع 💰</a>
+            </div>
+        </div>
+        <!-- ملاحظة إضافية: عدد غير محدد من الاشخاص -->
+        <div style="margin-top: 1rem; font-size: 0.75rem; text-align: center; background: #00000033; border-radius: 40px; padding: 8px;">
+            <i class="fas fa-users"></i> لا حدود لعدد الأجهزة المتصلة في الباقات المتقدمة – سيرفرات مفتوحة للاعبين دون قيود!
+        </div>
+    </div>
+
+    <!-- كيفية الاشتراك - طريقة احترافية -->
+    <div class="card">
+        <h3 style="margin-bottom: 1rem;">✨ خطوات ذهبية للحصول على الخدمة ✨</h3>
+        <div class="steps">
+            <div class="step"><span class="step-number">1</span> <span>📱 تواصل عبر تليجرام (الزر العائم) أو اضغط طلب اشتراك</span></div>
+            <div class="step"><span class="step-number">2</span> <span>🎮 أخبرنا باسم اللعبة التي تلعبها (PUBG – فري فاير – كود موبايل)</span></div>
+            <div class="step"><span class="step-number">3</span> <span>💰 طرق دفع متنوعة: محفظة فلوسك، USDT، تحويل بنكي سريع</span></div>
+            <div class="step"><span class="step-number">4</span> <span>⚡ نرسل لك ملف الإعدادات بصيغة WireGuard + شرح فيديو</span></div>
+            <div class="step"><span class="step-number">5</span> <span>🎯 استمتع بأقل بينغ مع فريقنا المحترف، دعم فني فوري!</span></div>
+        </div>
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="mailto:shahab1995shahab@gmail.com" class="btn" style="background: #2a2f3fcc;"><i class="far fa-envelope"></i> أو راسلنا عبر البريد الإلكتروني</a>
+        </div>
+    </div>
+
+    <!-- لماذا نحن - بطاقة تثير الإبهار -->
+    <div class="card">
+        <h3><i class="fas fa-gem"></i> مميزات حصرية تميزنا عن غيرنا</h3>
+        <ul class="feature-list" style="margin-top: 12px;">
+            <li><i class="fas fa-microchip"></i> <span>أحدث معالجات سيرفر Oracle Cloud + AMD EPYC</span></li>
+            <li><i class="fas fa-chart-line"></i> <span>مراقبة ذاتية لتقليل البينغ وتوزيع الحمل الذكي</span></li>
+            <li><i class="fas fa-redo-alt"></i> <span>تبديل الخوادم تلقائياً لأفضل مسار</span></li>
+            <li><i class="fas fa-hand-holding-usd"></i> <span>عروض حصرية وأسعار تنافسية مع خصم يصل 45%</span></li>
+            <li><i class="fas fa-trophy"></i> <span>أكثر من 500+ لاعب يثقون بخدماتنا في اليمن والخليج</span></li>
+        </ul>
+        <div style="background: #00b4aa20; padding: 12px; border-radius: 24px; margin-top: 12px; text-align: center; font-weight: bold;">
+            💬 "اختبر بنفسك – سيرفراتنا لا مثيل لها في الأداء والثبات" 💬
+        </div>
+    </div>
+
+    <!-- بطاقة إضافية: تجارب حصرية ومعلومات جديدة -->
+    <div class="card">
+        <div class="price-badge">🎁 عرض محدود لأول 10 مشتركين</div>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <div><i class="fas fa-gift fa-2x" style="color: #ffb347;"></i></div>
+            <div style="flex:1; margin-right: 12px;">
+                <h4 style="color:#ffb347;">هدية مجانية + أسبوع إضافي</h4>
+                <p style="font-size: 0.85rem;">عند الاشتراك بالباقة الشهرية أو الثلاثة أشهر خلال 24 ساعة القادمة، احصل على أسبوع مجاني وملف إعدادات احتياطي.</p>
+            </div>
+        </div>
+        <a href="https://t.me/Shivpn" class="btn btn-primary" style="margin-top: 10px;"><i class="fab fa-telegram"></i> اطلب العرض الآن 🎁</a>
+    </div>
+
+    <div class="footer">
+        © 2026 ShivVPN PRO - أفضل شبكة سيرفرات مخصصة للألعاب في العالم العربي. <br>
+        جميع الحقوق محفوظة. سرعة فائقة، أمان تام، دعم لا محدود.
+    </div>
+</div>
+
+<!-- زر التليجرام العائم -->
+<a href="https://t.me/Shivpn" class="float-tele" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-telegram-plane"></i>
+</a>
+
+<script>
+    // إضافة تأثير لطيف عند تحميل الصفحة
+    document.addEventListener("DOMContentLoaded", () => {
+        // تحريك بسيط أو تنبيه يمكن حذفه، لكن لتأكيد الهيدرا
+        console.log("تم تحميل ShivVPN - عروض اسطورية");
+        // يمكن إضافة تأثير وميض اختياري للبطاقات
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, idx) => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            setTimeout(() => {
+                card.style.transition = "opacity 0.5s ease, transform 0.4s ease";
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+            }, idx * 80);
+        });
+    });
+</script>
+</body>
+</html>
